@@ -3,7 +3,7 @@ Juan Manuel Ibañez Ospina
 Grupo 2 
 Problema A: Pago mensual de EPS (salud) con beneficiarios adicionales
 */
-
+const valorUPC=150000;
 const SMMLV=1750000;
 const maxIBC=25 * SMMLV;
 const porcentajeIBC=0.4;
@@ -12,6 +12,7 @@ const empleador=0.0085;
 const afiliado=0.0125;
 let aporteEmpleador;
 let aporteAfiliado;
+let adicionalUPC;
 
 const salario=Number(prompt("Ingrese salario mensual"));
 const tipo=Number(prompt("Ingrese 1 si es Depedendiente, o 2 si es independiente"));
@@ -37,5 +38,27 @@ else { const IBC=Math.round(salario*porcentajeIBC);
         IBC=0;
     }
 }
+
+if(tipo===1){
+aporteAfiliado=Math.round(IBC * trabajador);
+aporteEmpleador=Math.round(IBC * empleador);
+}
+else{
+aporteAfiliado=Math.round(IBC * afiliado);
+aporteEmpleador=0;
+}
+
+if(padres===0){
+    adicionalUPC=0;
+}
+else if(padres===1){
+    adicionalUPC=Math.round(padres * valorUPC);
+}
+else {
+    adicionalUPC=Math.round(padres * valorUPC);
+}
+
+const totalAfiliado=Math.round(aporteAfiliado + adicionalUPC);
+const totalEPS=Math.round(aporteAfiliado + aporteEmpleador);
 
 
