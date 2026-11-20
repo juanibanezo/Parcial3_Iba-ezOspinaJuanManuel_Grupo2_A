@@ -9,7 +9,7 @@ const maxIBC=25 * SMMLV;
 const porcentajeIBC=0.4;
 const trabajador=0.04;
 const empleador=0.0085;
-const afiliado=0.0125;
+const afiliado=0.125;
 let aporteEmpleador;
 let aporteAfiliado;
 let adicionalUPC;
@@ -27,17 +27,19 @@ else if (tipo>2 || tipo<1){
 else if (padres<0 || padres>3){
     alert("Error cantidad de padres invalida");
 }
-else { const IBC=Math.round(salario*porcentajeIBC);
-    if(IBC<1){
-        IBC=Math.round(SMMLV*1);
+else { 
+
+let IBC=salario * porcentajeIBC;
+
+    if(IBC<1750000){
+        IBC=SMMLV * 1;
     }
-    else if(IBC>25) {
-        IBC=Math.round(SMMLV*25);
+    else if(IBC>43750000) {
+        IBC=SMMLV * 25;
     }
     else {
-        IBC=0;
+     IBC=IBC;
     }
-}
 
 if(tipo===1){
 aporteAfiliado=Math.round(IBC * trabajador);
@@ -59,6 +61,15 @@ else {
 }
 
 const totalAfiliado=Math.round(aporteAfiliado + adicionalUPC);
-const totalEPS=Math.round(aporteAfiliado + aporteEmpleador);
+const totalEPS=Math.round(totalAfiliado + aporteEmpleador);
 
+alert(
+    "IBC: " + IBC + "\n" +
+    "Aporte del Afiliado: " + aporteAfiliado + "\n" +
+    "UPC adicional: " + adicionalUPC + "\n" +
+    "Aporte del Empleador: " + aporteEmpleador + "\n" +
+    "Total a cargo del afiliado: " + totalAfiliado + "\n" +
+    "Total que recibe la EPS: " + totalEPS
+  );
 
+}
