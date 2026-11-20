@@ -8,7 +8,7 @@ const SMMLV=1750000;
 const maxIBC=25 * SMMLV;
 const porcentajeIBC=0.4;
 const trabajador=0.04;
-const empleador=0.0085;
+const empleador=0.085;
 const afiliado=0.125;
 let aporteEmpleador;
 let aporteAfiliado;
