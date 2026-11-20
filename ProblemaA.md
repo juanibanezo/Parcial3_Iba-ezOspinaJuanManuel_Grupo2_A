@@ -60,3 +60,7 @@ Mostrar con `alert()`: IBC, aporte del afiliado, UPC adicional, aporte del emple
 | 15 | 4.000.000, 3, 0 | "Tipo de afiliado no válido" |
 | 16 | 4.000.000, 1, 3 | "Cantidad de padres no válida" |
 | 17 | 0, 1, 0 | "Salario no válido" |
+
+## Nombre Completo
+Juan Manuel Ibañez Ospina
+
