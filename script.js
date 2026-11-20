@@ -6,9 +6,12 @@ Problema A: Pago mensual de EPS (salud) con beneficiarios adicionales
 
 const SMMLV=1750000;
 const maxIBC=25 * SMMLV;
-const IBC=0.4;
+const porcentajeIBC=0.4;
 const trabajador=0.04;
 const empleador=0.0085;
+const afiliado=0.0125;
+let aporteEmpleador;
+let aporteAfiliado;
 
 const salario=Number(prompt("Ingrese salario mensual"));
 const tipo=Number(prompt("Ingrese 1 si es Depedendiente, o 2 si es independiente"));
@@ -23,4 +26,16 @@ else if (tipo>2 || tipo<1){
 else if (padres<0 || padres>3){
     alert("Error cantidad de padres invalida");
 }
+else { const IBC=Math.round(salario*porcentajeIBC);
+    if(IBC<1){
+        IBC=Math.round(SMMLV*1);
+    }
+    else if(IBC>25) {
+        IBC=Math.round(SMMLV*25);
+    }
+    else {
+        IBC=0;
+    }
+}
+
 
